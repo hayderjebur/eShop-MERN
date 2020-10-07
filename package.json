@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server/server.js",
     "server": "nodemon server/server",
@@ -21,8 +22,11 @@
   },
   "homepage": "https://github.com/hayderjebur/eCommerce-MERN#readme",
   "dependencies": {
+    "colors": "^1.4.0",
     "concurrently": "^5.3.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mongoose": "^5.10.8",
     "nodemon": "^2.0.4"
   }
 }
