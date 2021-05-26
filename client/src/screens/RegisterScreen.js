@@ -83,7 +83,7 @@ const RegisterScreen = ({ location, history }) => {
           ></Form.Control>
         </Form.Group>
 
-        <Button type='submit' variant='primary'>
+        <Button type='submit' variant='outline-success'>
           Register
         </Button>
       </Form>
