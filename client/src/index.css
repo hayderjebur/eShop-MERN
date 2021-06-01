@@ -42,3 +42,22 @@ h2 {
 .carousel a {
   margin: 0 auto;
 }
+
+.x {
+  opacity: 0;
+  position: absolute;
+  top: 2rem;
+  right: 0.5rem;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  background: #4bbf73;
+  padding: 4px 5px;
+  width: 70%;
+  text-align: center;
+  cursor: pointer;
+  font-family: Raleway, sans-serif;
+  border-radius: 50px;
+}
+.x:hover {
+  opacity: 1;
+}

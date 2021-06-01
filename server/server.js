@@ -37,9 +37,9 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 7000;
 app.listen(
-  5000,
+  9000,
   console.log(
     `Server running in ${process.env.NODE_ENV} mood on port ${PORT}`.yellow.bold
   )
