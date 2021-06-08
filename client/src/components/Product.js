@@ -29,15 +29,13 @@ const Product = ({ product }) => {
         <Card.Img src={product.image} variant='top' />
       </Link>
       <div
-        className='x'
+        className='addItem'
         // onClick={(e) => {
         //   dispatch(addToCart(product._id, 1));
         // }}
       >
-        <i className='fas fa-shopping-cart' style={{ color: 'white' }}>
-          {' '}
-          Add to cart
-        </i>
+        <i className='fas fa-shopping-cart' style={{ color: 'white' }}></i>
+        Add to cart
       </div>
 
       <Card.Body>

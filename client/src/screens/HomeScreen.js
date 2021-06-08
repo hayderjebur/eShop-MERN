@@ -9,11 +9,12 @@ import Loader from '../components/Loader';
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
 import Meta from '../components/Meta';
-import { listProducts } from '../actions/productActions';
+import { listProducts, test } from '../actions/productActions';
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
   const pageNumber = match.params.pageNumber || 1;
+
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { loading, error, products, page, pages } = productList;
@@ -22,6 +23,9 @@ const HomeScreen = ({ match }) => {
     dispatch(listProducts(keyword, pageNumber));
   }, [dispatch, keyword, pageNumber]);
 
+  const test1 = () => {
+    dispatch(test(60));
+  };
   return (
     <>
       <Meta />
@@ -45,6 +49,16 @@ const HomeScreen = ({ match }) => {
               </Col>
             ))}
           </Row>
+          <input
+            type='range'
+            name='price'
+            min='0'
+            max='10000'
+            id='price'
+            //value={price}
+            //onChange={handleChange}
+          />
+          <button onClick={test1}>button</button>
           <Paginate
             pages={pages}
             page={page}

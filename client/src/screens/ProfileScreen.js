@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Form, Button, Row, Col, Image } from 'react-bootstrap';
+import { Table, Form, Button, Row, Col } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
@@ -7,7 +7,6 @@ import Loader from '../components/Loader';
 import { getUserDetails, updateUserProfile } from '../actions/userActions';
 import { listMyOrders } from '../actions/orderActions';
 import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
-import FigureImage from 'react-bootstrap/esm/FigureImage';
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState('');
@@ -135,7 +134,6 @@ const ProfileScreen = ({ location, history }) => {
               {orders.map((order) => (
                 <tr key={order._id}>
                   <td>{order._id}</td>
-
                   <td>{order.createdAt.substring(0, 10)}</td>
                   <td>{order.totalPrice}</td>
                   <td>

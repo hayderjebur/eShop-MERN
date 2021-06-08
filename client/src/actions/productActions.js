@@ -68,6 +68,22 @@ export const listProductDetails = (id) => async (dispatch) => {
     });
   }
 };
+export const test = (price) => async (dispatch, getState) => {
+  try {
+    const {
+      productList: { products },
+    } = getState();
+
+    let pf = products.filter((p) => p.price <= price);
+
+    dispatch({
+      type: 'filter',
+      payload: pf,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const deleteProduct = (id) => async (dispatch, getState) => {
   try {
