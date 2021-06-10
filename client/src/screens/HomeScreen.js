@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Router } from 'react-router-dom';
 import SearchBox from '../components/SearchBox';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,9 +7,8 @@ import Product from '../components/Product';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import Paginate from '../components/Paginate';
-import ProductCarousel from '../components/ProductCarousel';
 import Meta from '../components/Meta';
-import { listProducts, test } from '../actions/productActions';
+import { listProducts } from '../actions/productActions';
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
@@ -23,9 +22,6 @@ const HomeScreen = ({ match }) => {
     dispatch(listProducts(keyword, pageNumber));
   }, [dispatch, keyword, pageNumber]);
 
-  const test1 = () => {
-    dispatch(test(60));
-  };
   return (
     <>
       <Meta />
@@ -49,16 +45,7 @@ const HomeScreen = ({ match }) => {
               </Col>
             ))}
           </Row>
-          <input
-            type='range'
-            name='price'
-            min='0'
-            max='10000'
-            id='price'
-            //value={price}
-            //onChange={handleChange}
-          />
-          <button onClick={test1}>button</button>
+
           <Paginate
             pages={pages}
             page={page}

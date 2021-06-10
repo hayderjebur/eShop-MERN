@@ -42,19 +42,6 @@ export const productListReducer = (state = { products: [] }, action) => {
       return state;
   }
 };
-export const testReducer = (state = { products: [] }, action) => {
-  switch (action.type) {
-    case 'filter':
-      return {
-        loading: false,
-        products: action.payload,
-      };
-    case PRODUCT_LIST_FAIL:
-      return { loading: false, error: action.payload };
-    default:
-      return state;
-  }
-};
 
 export const productDetailsReducer = (
   state = { product: { reviews: [] } },

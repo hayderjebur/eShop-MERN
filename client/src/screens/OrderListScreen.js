@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Table, Button, Image } from 'react-bootstrap';
+import { Table, Button, Image, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -35,6 +35,7 @@ const OrderListScreen = ({ history }) => {
           <thead>
             <tr>
               <th>ID</th>
+              <th>IMAGE</th>
               <th>USER</th>
               <th>DATE</th>
               <th>TOTAL</th>
@@ -47,6 +48,17 @@ const OrderListScreen = ({ history }) => {
             {orders.map((order) => (
               <tr key={order._id}>
                 <td>{order._id}</td>
+                <td>
+                  {order.orderItems.map((item, index) => (
+                    <Image
+                      width='70px'
+                      src={`../../${item.image}`}
+                      alt={item.name}
+                      fluid
+                      rounded
+                    />
+                  ))}
+                </td>
                 <td>{order.user && order.user.name}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
                 <td>${order.totalPrice}</td>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Form, Button, Row, Col } from 'react-bootstrap';
+import { Table, Form, Button, Row, Col, Image } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
@@ -123,6 +123,7 @@ const ProfileScreen = ({ location, history }) => {
             <thead>
               <tr>
                 <th>ID</th>
+                <th>Image</th>
                 <th>DATE</th>
                 <th>TOTAL</th>
                 <th>PAID</th>
@@ -134,6 +135,17 @@ const ProfileScreen = ({ location, history }) => {
               {orders.map((order) => (
                 <tr key={order._id}>
                   <td>{order._id}</td>
+                  <td>
+                    {order.orderItems.map((item, index) => (
+                      <Image
+                        width='70px'
+                        src={`../../${item.image}`}
+                        alt={item.name}
+                        fluid
+                        rounded
+                      />
+                    ))}
+                  </td>
                   <td>{order.createdAt.substring(0, 10)}</td>
                   <td>{order.totalPrice}</td>
                   <td>
