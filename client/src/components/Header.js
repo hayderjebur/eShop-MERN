@@ -31,11 +31,21 @@ const Header = () => {
                   fontSize: '1.3rem',
                   textTransform: 'none',
                   color: '#4bbf73',
+                  fontFamily: 'Dancing Script',
                 }}
               >
-                e
+                Ahmad
               </span>
-              Shop
+              <span
+                style={{
+                  fontSize: '1.3rem',
+                  textTransform: 'none',
+
+                  fontFamily: 'Dancing Script',
+                }}
+              >
+                Mzeil
+              </span>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />

@@ -15,9 +15,9 @@ const Footer = () => {
                 color: '#4bbf73',
               }}
             >
-              e
+              Ahmad
             </span>
-            Shop
+            Mzeil
           </Col>
         </Row>
       </Container>

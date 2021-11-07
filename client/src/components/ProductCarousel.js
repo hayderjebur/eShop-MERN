@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Loader from './Loader';
 import Message from './Message';
 import { listTopProducts } from '../actions/productActions';
+import Figure from 'react-bootstrap/Figure';
 
 const ProductCarousel = () => {
   const dispatch = useDispatch();
@@ -24,14 +25,22 @@ const ProductCarousel = () => {
     <Carousel fade pause='hover' className='bg-dark'>
       {products.map((product) => (
         <Carousel.Item key={product._id}>
-          <Link to={`/product/${product._id}`}>
-            <Image src={product.image} alt={product.name} fluid />
-            <Carousel.Caption className='carousel-caption'>
-              <h2>
-                {product.name} (${product.price})
-              </h2>
-            </Carousel.Caption>
-          </Link>
+          {/* <Link to={`/product/${product._id}`}> */}
+          <Image
+            src={product.image}
+            //style={{ borderRadius: '1px' }}
+            alt={product.name}
+            fluid
+            className='h-30 w-30'
+            rounded
+          />
+
+          {/* <Carousel.Caption className='carousel-caption'>
+            <h2>
+              {product.name} (${product.price})
+            </h2>
+          </Carousel.Caption> */}
+          {/* </Link> */}
         </Carousel.Item>
       ))}
     </Carousel>

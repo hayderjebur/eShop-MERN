@@ -1,20 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Badge } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../actions/cartActions';
 import Rating from './Rating';
 
 const Product = ({ product }) => {
-  const dispatch = useDispatch();
-
-  // const addToCartHandler = () => {
-  //   history.push(`/cart/${match.params.id}?qty=${qty}`);
-  // };
   return (
     <Card
       className='m-2 p-2 rounded'
-      style={{ minHeight: '29rem', position: 'relative' }}
+      style={{ height: '30rem', position: 'relative' }}
     >
       <Link to={`/product/${product._id}`}>
         {new Date(product.createdAt).getDate() <= 20 && (
@@ -26,32 +19,24 @@ const Product = ({ product }) => {
             New
           </Badge>
         )}
-        <Card.Img src={product.image} variant='top' />
+        <Card.Img
+          src={product.image}
+          variant='top'
+          style={{ maxHeight: '20rem' }}
+        />
       </Link>
-      <div
-        className='addItem'
-        // onClick={(e) => {
-        //   dispatch(addToCart(product._id, 1));
-        // }}
-      >
-        <i className='fas fa-shopping-cart' style={{ color: 'white' }}></i>
-        Add to cart
-      </div>
-
       <Card.Body>
         <Link to={`/product/${product._id}`}>
           <Card.Title as='div'>
             <strong>{product.name}</strong>
           </Card.Title>
         </Link>
-
         <Card.Text as='div'>
           <Rating
             value={product.rating}
             text={`${product.numReviews} reviews`}
           />
         </Card.Text>
-
         <Card.Text as='h3'>${product.price}</Card.Text>
       </Card.Body>
     </Card>
